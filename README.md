@@ -1,80 +1,82 @@
 # test1
 
-\# Python综合实验1
+#### \# Python课程实验作业1
 
-本次项目包含两个考题：Excel销售数据清洗统计、FastAPI记账接口开发。
-
-
-
-\## 项目内容
-
-1\. 考题一：基于pandas实现销售原始数据清洗，自动生成多工作表统计Excel报表，处理脏数据、规范日期格式，自动调整列宽。
-
-2\. 考题二：使用FastAPI开发简易记账后端接口，实现记账记录新增、查询、统计摘要，修复Swagger文档CDN问题，搭配pytest完成接口单元测试。
+本仓库包含两道Python实验考题代码以及对应的实验报告文档。
 
 
 
-\## 环境依赖
+📁 文件说明
 
-\- Python 3.x
+\- 考题1：销售数据清洗与统计
 
-\- pandas
+&#x20; - sales\_report.py：数据清洗主程序
 
-\- fastapi
+&#x20; - sales\_raw.xlsx：原始销售数据
 
-\- uvicorn
+&#x20; - report.xlsx：清洗后输出报表
 
-\- httpx
+\- 考题2：FastAPI记账接口开发
 
-\- openpyxl
+&#x20; - main.py：接口服务主代码
 
+&#x20; - test\_api.py：接口测试代码
 
-
-\## 文件说明
-
-\- sales\_report.py：考题一数据清洗代码
-
-\- main.py：考题二FastAPI记账接口代码
-
-\- test\_api.py：接口pytest测试脚本
-
-\- sales\_raw.xlsx：原始销售数据
-
-\- report.xlsx：清洗后输出报表
-
-\- \*.docx：实验报告文档
+\- test-python\_vibe\_coding(1).docx、test-python\_vibe\_coding(2).docx：两道题完整实验报告
 
 
 
-\## 运行方式
+📌 环境依赖
 
-\### 考题一（数据清洗）
-
-终端运行：python sales\_report.py
-
-运行后自动生成清洗统计后的 Excel 文件。
+pip install pandas openpyxl fastapi uvicorn httpx
 
 
 
-\###考题二（FastAPI 接口）
+▶️ 运行方式
 
-终端运行：uvicorn main:app --reload
+考题 1
 
-启动后访问：
+运行：python sales\_report.py
 
-http://127.0.0.1:8000/docs
+功能：读取 Excel 原始数据，完成数据清洗，生成统计报表。
 
-http://127.0.0.1:8000/redoc
+考题 2
 
-接口测试：pytest test\_api.py -v
+启动接口服务：uvicorn main:app --reload
+
+访问接口文档：http://127.0.0.1:8000/docs
+
+运行测试用例：pytest test\_api.py -v
 
 
 
-实验心得体会
+📖 考察知识点
 
-通过本次实验，我练习了 Python 数据分析与 Web 接口开发。一开始安装依赖时遇到metadata-generation-failed报错，反复调试才找到使用预编译包的解决办法；FastAPI 文档白屏的问题，也让我了解到 Swagger 静态资源 CDN 的坑。
+考题 1：pandas 库读取、清洗 Excel 数据；缺失值、异常数据处理；多工作表写入；数据分组统计。
 
-在处理 Excel 时，熟悉了 pandas 数据清洗、空值处理、格式转换；写接口和单元测试时，理解了后端接口的编写、调试思路。
+考题 2：FastAPI 框架搭建 Web 接口；GET/POST 请求；接口自动文档；pytest 单元测试；本地服务启动调试。
 
-同时学习了 Git 与 GitHub Desktop 的使用，学会把代码、实验文档统一托管到仓库，养成版本管理的习惯。过程中踩了很多小 bug，也意识到写代码要仔细核对文件路径、区分不同考题的代码，不要混淆。整体收获很大，对 Python 工程化开发有了更直观的认识。
+
+
+🧠 解题思路
+
+考题 1：先读取原始 Excel 数据，检查脏数据，完成清洗；再按需求分组汇总统计，最后新建多个工作表保存结果文件。
+
+考题 2：先设计记账记录的数据结构，编写新增、查询、汇总接口；借助自带的 swagger 文档测试接口；编写 pytest 代码自动化验证接口功能。
+
+
+
+❗ 遇到的难题与解决方法
+
+Excel 列宽异常、日期格式错乱：在代码里增加格式处理逻辑，或者生成后手动调整表格列宽。
+
+FastAPI 文档页面白屏：是 CDN 加载问题，替换为国内源，改用/redoc地址访问文档。
+
+运行 pytest 提示缺少 httpx：使用 pip 命令安装对应依赖包后再执行测试。
+
+GitHub 文档无法在线预览：GitHub 限制 docx 预览，只能下载到本地用 WPS/Word 打开查看。
+
+💡 心得体会
+
+这次实验让我熟悉了 Python 数据处理和 Web 接口开发两个方向。写代码的时候经常遇到各种报错，一开始不知道从哪里下手，慢慢学会看报错信息、定位问题。同时也学会了用 GitHub 管理代码，懂得整理项目文件。我意识到写程序不只是写出能运行的代码，还要做好注释、整理文档，方便别人看懂。后续我会继续练习调试能力，巩固 Python 和接口开发相关知识。
 
